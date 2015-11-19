@@ -215,9 +215,9 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'eventus',
+      'database' => 'cp_ticket',
       'username' => 'root',
-      'password' => '',
+      'password' => 'drupalpwd',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
