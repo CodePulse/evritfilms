@@ -1,0 +1,12 @@
+name = Codepulse - Entityforms
+core = 7.x
+package = Codepulse Features
+features[entityform_type][] = contact_us
+features[features_api][] = api:2
+features[field_base][] = field_e_mail
+features[field_base][] = field_message
+features[field_base][] = field_name
+features[field_instance][] = entityform-contact_us-field_e_mail
+features[field_instance][] = entityform-contact_us-field_message
+features[field_instance][] = entityform-contact_us-field_name
+project path = sites/all/modules/features
