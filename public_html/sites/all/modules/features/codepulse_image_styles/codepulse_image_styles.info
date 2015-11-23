@@ -1,0 +1,12 @@
+name = Codepulse - Image styles
+core = 7.x
+package = Codepulse Features
+dependencies[] = image
+features[features_api][] = api:2
+features[image][] = 265x190
+features[image][] = blog_large_image
+features[image][] = blog_timeline
+features[image][] = homepage_events
+features[image][] = medium_blog
+features[image][] = portfolio
+project path = sites/all/modules/features
