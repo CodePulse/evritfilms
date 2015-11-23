@@ -947,6 +947,20 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = 'Synopsis';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  /* Field: Content: Release date */
+  $handler->display->display_options['fields']['field_release_date']['id'] = 'field_release_date';
+  $handler->display->display_options['fields']['field_release_date']['table'] = 'field_data_field_release_date';
+  $handler->display->display_options['fields']['field_release_date']['field'] = 'field_release_date';
+  $handler->display->display_options['fields']['field_release_date']['label'] = '';
+  $handler->display->display_options['fields']['field_release_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_release_date']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -958,6 +972,7 @@ function codepulse_views_views_default_views() {
       [field_poster]
     </div>
     <div class="event-info">
+       <span><strong>Release date: </strong>[field_release_date]</span><br>
       <span><strong>Director: </strong>[field_director]</span><br>
       <span><strong>Writers: </strong>[field_writers]</span><br>
       <span><strong>Age: </strong>[field_age_rating]</span><br>
