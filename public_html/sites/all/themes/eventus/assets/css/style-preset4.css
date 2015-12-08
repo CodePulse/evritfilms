@@ -2151,6 +2151,9 @@ input[type="submit"].btn.btn-mini {
 ul.menu {
   text-align: start;
 }
+.page-user label {
+  width:120px;
+}
 @media screen and (max-width: 991px) {
   body #section-header a.site-logo {
     line-height: 80px;
