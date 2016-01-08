@@ -1,0 +1,12 @@
+name = Codepulse - User
+core = 7.x
+package = Codepulse Features
+dependencies[] = features
+dependencies[] = list
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_first_name
+features[field_base][] = field_join_our_mailing_list
+features[field_base][] = field_phone_number
+features[field_base][] = field_rebecca_confirm_attendance
+features[field_base][] = field_surname
