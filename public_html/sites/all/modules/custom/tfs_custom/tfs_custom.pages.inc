@@ -2,7 +2,6 @@
 
 function tfs_custom_confirm_attendance($form, &$form_state, $user){
   $first_name = $user->field_first_name[LANGUAGE_NONE][0]['safe_value'];
-  dpm($user);
   $confirmed = $user->field_rebecca_confirm_attendance;
 
   if (empty($confirmed)) {
