@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Custom module file for tfs.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function tfs_custom_menu() {
+  $items = array();
+
+  $items['rebecca/confirm-attendance/%tfs_custom_user_tfs'] = array(
+    'title' => 'Confirm attendance',
+    'description' => 'Accept or decline invitation',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tfs_custom_confirm_attendance',2),
+    'access callback' => 'tfs_custom_confirm_attendance_access',
+    'access arguments' => array(2),
+    'file' => 'tfs_custom.pages.inc',
+  );
+
+  return $items;
+
+}
+
+/**
+ * Menu autoloader.
+ *
+ * @param string $uid
+ *   The uid of the user
+ */
+function tfs_custom_user_tfs_load($uid){
+  $user_account = &drupal_static(__FUNCTION__, NULL);
+
+  if (empty($user_account)) {
+    $user_account = user_load($uid);
+  }
+  return $user_account;
+}
+
+function tfs_custom_confirm_attendance_access($user_account){
+  global $user;
+  $args = arg();
+
+  if ($user->uid == $args[2] || $user->uid == 1){
+    return TRUE;
+  }
+
+  return FALSE;
+}
