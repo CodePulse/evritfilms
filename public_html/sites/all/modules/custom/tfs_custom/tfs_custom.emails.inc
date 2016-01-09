@@ -21,14 +21,14 @@ function tfs_custom_email_form($form, &$form_state){
   $confirm_subject = variable_get('tfs_custom_ask_confirm_subject');
   $form['tfs_custom_ask_confirm']['tfs_custom_ask_confirm_subject'] = array(
     '#type' => 'textfield',
-    '#title' => t('The subject line for this email'),
+    '#title' => t('Confirmation email - Subject'),
     '#required' => TRUE,
     '#default_value' => $confirm_subject,
   );
 
   $confirm_body = variable_get('tfs_custom_ask_confirm_body',array('value' => '', 'format' => ''));
   $form['tfs_custom_ask_confirm']['tfs_custom_ask_confirm_body'] = array(
-    '#title' => t('Student email - Message'),
+    '#title' => t('Confirmation email - Message'),
     '#required' => TRUE,
     '#type' => 'text_format',
     '#default_value' => check_markup($confirm_body['value'], $confirm_body['format']),
