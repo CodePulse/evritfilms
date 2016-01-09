@@ -16,8 +16,8 @@ function tfs_custom_confirm_attendance($form, &$form_state, $user){
       '#type' => 'radios',
       '#required' => TRUE,
       '#options' => drupal_map_assoc(array(
-        t('Yes'),
-        t('No'),
+        t('YES I accept'),
+        t('NO I cannot make it'),
       )),
     );
 
