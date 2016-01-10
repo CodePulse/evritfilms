@@ -68,7 +68,6 @@ function tfs_custom_confirm_attendance_access($user_account){
  * @see hook_mail
  */
 function tfs_custom_mail($key, &$message, $params) {
-  global $base_url;
   $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
   switch ($key) {
     case 'send_rebecca_confirmation_email':
@@ -82,6 +81,10 @@ function tfs_custom_mail($key, &$message, $params) {
         '!uid' => $params['uid'],
         '!CUSTOM_CONFIRM_LINK' => $params['CUSTOM_CONFIRM_LINK'],
       ));
+      break;
+    case 'rebecca_confirmation_yes':
+      $message['subject'] = t('NEED A SUBJECT FOR THIS!');
+      $message['body'][] = t('Please come with your e-ticket on the night to grant you access to watch the film.');
       break;
   }
 }

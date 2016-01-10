@@ -44,6 +44,10 @@ function tfs_custom_confirm_attendance_submit($form, &$form_state){
 
   $user_account->field_rebecca_confirm_attendance['und'][0]['value'] = $answer;
 
+  if ($answer == 'YES I accept') {
+    drupal_mail('tfs_custom', 'rebecca_confirmation_yes', $user_account->mail, language_default());
+  }
+
   user_save($user_account);
 
   drupal_set_message(t('<strong>!fname</strong>, thank you for your confirmation.',
