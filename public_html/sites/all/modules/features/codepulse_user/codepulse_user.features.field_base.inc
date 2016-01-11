@@ -101,6 +101,9 @@ function codepulse_user_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_rebecca_confirm_attendance',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
