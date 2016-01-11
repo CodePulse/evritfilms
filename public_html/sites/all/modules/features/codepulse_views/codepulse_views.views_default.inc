@@ -2093,6 +2093,10 @@ function codepulse_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
+  /* Header: Global: Result summary */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
   /* Field: Field: First name */
   $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
   $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
@@ -2113,17 +2117,14 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'users';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
-  /* Filter criterion: User: Active */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'users';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   /* Filter criterion: User: Confirm attendance (field_rebecca_confirm_attendance) */
   $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['id'] = 'field_rebecca_confirm_attendance_value';
   $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['table'] = 'field_data_field_rebecca_confirm_attendance';
   $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['field'] = 'field_rebecca_confirm_attendance_value';
+  $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['value'] = array(
+    'YES I accept' => 'YES I accept',
+  );
+  $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['group'] = 1;
   $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['expose']['operator_id'] = 'field_rebecca_confirm_attendance_value_op';
   $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['expose']['label'] = 'Confirm attendance';
@@ -2135,28 +2136,15 @@ function codepulse_views_views_default_views() {
     3 => 0,
     4 => 0,
   );
-  /* Filter criterion: User: The user ID */
-  $handler->display->display_options['filters']['uid_raw']['id'] = 'uid_raw';
-  $handler->display->display_options['filters']['uid_raw']['table'] = 'users';
-  $handler->display->display_options['filters']['uid_raw']['field'] = 'uid_raw';
-  $handler->display->display_options['filters']['uid_raw']['operator'] = '!=';
-  $handler->display->display_options['filters']['uid_raw']['value']['value'] = '1';
-  /* Filter criterion: User: The user ID */
-  $handler->display->display_options['filters']['uid_raw_1']['id'] = 'uid_raw_1';
-  $handler->display->display_options['filters']['uid_raw_1']['table'] = 'users';
-  $handler->display->display_options['filters']['uid_raw_1']['field'] = 'uid_raw';
-  $handler->display->display_options['filters']['uid_raw_1']['operator'] = '!=';
-  $handler->display->display_options['filters']['uid_raw_1']['value']['value'] = '93';
-  /* Filter criterion: User: The user ID */
-  $handler->display->display_options['filters']['uid_raw_2']['id'] = 'uid_raw_2';
-  $handler->display->display_options['filters']['uid_raw_2']['table'] = 'users';
-  $handler->display->display_options['filters']['uid_raw_2']['field'] = 'uid_raw';
-  $handler->display->display_options['filters']['uid_raw_2']['operator'] = '!=';
-  $handler->display->display_options['filters']['uid_raw_2']['value']['value'] = '43';
+  /* Filter criterion: User: Confirm attendance (field_rebecca_confirm_attendance) */
+  $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value_1']['id'] = 'field_rebecca_confirm_attendance_value_1';
+  $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value_1']['table'] = 'field_data_field_rebecca_confirm_attendance';
+  $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value_1']['field'] = 'field_rebecca_confirm_attendance_value';
+  $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value_1']['operator'] = 'not empty';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'admin/list-of-users';
+  $handler->display->display_options['path'] = 'admin/reports/rebecca-confirmation';
   $export['users'] = $view;
 
   return $export;
