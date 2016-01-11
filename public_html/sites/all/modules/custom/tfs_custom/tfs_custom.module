@@ -68,6 +68,7 @@ function tfs_custom_confirm_attendance_access($user_account){
  * @see hook_mail
  */
 function tfs_custom_mail($key, &$message, $params) {
+  global $base_url;
   $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
   switch ($key) {
     case 'send_rebecca_confirmation_email':
@@ -83,8 +84,9 @@ function tfs_custom_mail($key, &$message, $params) {
       ));
       break;
     case 'rebecca_confirmation_yes':
-      $message['subject'] = t('NEED A SUBJECT FOR THIS!');
-      $message['body'][] = t('Please come with your e-ticket on the night to grant you access to watch the film.');
+      $message['subject'] = t('E-Ticket to REBECCA London premiere attached');
+      $message['body'][] .= t('Please come with your e-ticket on the night to grant you access to watch the film.');
+      $message['body'][] .= t("<img src='$base_url/sites/all/themes/eventus/images/E-Ticket_invite_1.jpg'>");
       break;
   }
 }
