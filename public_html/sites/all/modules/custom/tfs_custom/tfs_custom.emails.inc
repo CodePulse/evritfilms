@@ -53,15 +53,19 @@ function tfs_custom_send_emails($form, &$form_state){
 //    ->fields('u', array('mail', 'uid'))
 //    ->condition('u.uid', 1, '!=')
 //    ->condition('u.uid', 43, '!=')
-//    ->orderBy('u.created',' ASC')
-//    ->range(0,178);
+//    ->orderBy('u.created','ASC')
+//    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NULL')
+//    ->range(0,228);
+//  $query->leftJoin('field_data_field_rebecca_confirm_attendance', 'rca', 'rca.entity_id = u.uid');
 //  $result = $query->execute();
 
   $query = db_select('users', 'u')
     ->fields('u', array('mail', 'uid'))
-    ->condition('u.uid', array(1,43))
+    ->condition('u.uid', array(1))
     ->orderBy('u.created',' ASC')
-    ->range(0,200);
+    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NULL')
+    ->range(0,228);
+  $query->leftJoin('field_data_field_rebecca_confirm_attendance', 'rca', 'rca.entity_id = u.uid');
   $result = $query->execute();
 
   foreach ($result as $row) {
@@ -70,5 +74,13 @@ function tfs_custom_send_emails($form, &$form_state){
       'CUSTOM_CONFIRM_LINK' => l(t('HERE'), $base_url . "/rebecca/confirm-attendance/$row->uid"),
     );
     drupal_mail('tfs_custom', 'send_rebecca_confirmation_email', $row->mail, language_default(), $params);
+    watchdog('tfs_custom_mail', t('Confirmation email has been sent to !mail - confirm uid is !uid',
+      array(
+        '!mail' => $row->mail,
+        '!uid' => $row->uid,
+      )));
+
   }
+
+
 }
