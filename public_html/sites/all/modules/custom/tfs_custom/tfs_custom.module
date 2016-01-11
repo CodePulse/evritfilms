@@ -85,7 +85,9 @@ function tfs_custom_mail($key, &$message, $params) {
       break;
     case 'rebecca_confirmation_yes':
       $message['subject'] = t('E-Ticket to REBECCA London premiere attached');
-      $message['body'][] .= t('Please come with your e-ticket on the night to grant you access to watch the film.');
+      $message['body'][] .= t('Hi !fname, <br> <br>Please come with your e-ticket on the night to grant you access to watch the film.', array(
+        '!fname' => $params['fname']
+      ));
       $message['body'][] .= t("<img src='$base_url/sites/all/themes/eventus/images/E-Ticket_invite_1.jpg'>");
       break;
   }
