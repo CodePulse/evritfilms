@@ -35,11 +35,11 @@ function tfs_custom_email_form($form, &$form_state){
     '#format' => !empty($confirm_body['format']) ? $confirm_body['format'] : 'full_html',
   );
 
-  $form['send_emails'] = array(
-    '#type' => 'submit',
-    '#value' => t('Send emails'),
-    '#submit' => array('tfs_custom_send_emails'),
-  );
+//  $form['send_emails'] = array(
+//    '#type' => 'submit',
+//    '#value' => t('Send emails'),
+//    '#submit' => array('tfs_custom_send_emails'),
+//  );
   return system_settings_form($form);
 }
 
