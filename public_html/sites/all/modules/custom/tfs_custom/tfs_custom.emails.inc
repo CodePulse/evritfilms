@@ -73,7 +73,7 @@ function tfs_custom_send_emails($form, &$form_state){
       'mail' => $row->mail,
       'CUSTOM_CONFIRM_LINK' => l(t('HERE'), $base_url . "/rebecca/confirm-attendance/$row->uid"),
     );
-    drupal_mail('tfs_custom', 'send_rebecca_confirmation_email', $row->mail, language_default(), $params);
+//    drupal_mail('tfs_custom', 'send_rebecca_confirmation_email', $row->mail, language_default(), $params);
     watchdog('tfs_custom_mail', t('Confirmation email has been sent to !mail - confirm uid is !uid',
       array(
         '!mail' => $row->mail,
