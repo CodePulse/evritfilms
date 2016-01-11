@@ -63,7 +63,6 @@ function tfs_custom_send_emails($form, &$form_state){
     ->condition('u.uid', array(1,43))
     ->orderBy('u.created',' ASC')
     ->range(0,200);
-  dpq($query);
   $result = $query->execute();
 
   foreach ($result as $row) {
@@ -71,6 +70,6 @@ function tfs_custom_send_emails($form, &$form_state){
       'mail' => $row->mail,
       'CUSTOM_CONFIRM_LINK' => l(t('here'), $base_url . "/rebecca/confirm-attendance/$row->uid"),
     );
-//    drupal_mail('tfs_custom', 'send_rebecca_confirmation_email', $row->mail, language_default(), $params);
+    drupal_mail('tfs_custom', 'send_rebecca_confirmation_email', $row->mail, language_default(), $params);
   }
 }
