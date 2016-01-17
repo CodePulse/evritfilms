@@ -11,7 +11,7 @@
 function tfs_custom_menu() {
   $items = array();
 
-  $items['rebecca/confirm-attendance/%tfs_custom_user_tfs'] = array(
+  $items['rebecca/new/confirm-attendance/%tfs_custom_user_tfs'] = array(
     'title' => 'Confirm attendance',
     'description' => 'Accept or decline invitation',
     'page callback' => 'drupal_get_form',
