@@ -5,6 +5,9 @@
  * Custom module file for tfs.
  */
 
+function tfs_custom_init(){
+}
+
 /**
  * Implements hook_menu().
  */
@@ -15,9 +18,9 @@ function tfs_custom_menu() {
     'title' => 'Confirm attendance',
     'description' => 'Accept or decline invitation',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('tfs_custom_confirm_attendance',2),
+    'page arguments' => array('tfs_custom_confirm_attendance', 3),
     'access callback' => 'tfs_custom_confirm_attendance_access',
-    'access arguments' => array(2),
+    'access arguments' => array(3),
     'file' => 'tfs_custom.pages.inc',
   );
 
@@ -54,10 +57,10 @@ function tfs_custom_confirm_attendance_access($user_account){
   $args = arg();
 
   if (!user_is_logged_in()){
-    drupal_goto('user/login', array('query' => array('destination' => "rebecca/confirm-attendance/$user_account->uid")));
+    drupal_goto('user/login', array('query' => array('destination' => "rebecca/new/confirm-attendance/$user_account->uid")));
   }
 
-  if ($user->uid == $args[2] || $user->uid == 1) {
+  if ($user->uid == $args[3] || $user->uid == 1) {
     return TRUE;
   }
 
