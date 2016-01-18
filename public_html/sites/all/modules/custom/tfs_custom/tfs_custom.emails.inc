@@ -49,24 +49,24 @@ function tfs_custom_email_form($form, &$form_state){
  */
 function tfs_custom_send_emails($form, &$form_state){
   global $base_url;
-//  $query = db_select('users', 'u')
-//    ->fields('u', array('mail', 'uid'))
-//    ->condition('u.uid', 1, '!=')
-//    ->condition('u.uid', 43, '!=')
-//    ->orderBy('u.created','DESC')
-//    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NULL')
-//    ->range(0,100);
-//  $query->leftJoin('field_data_field_rebecca_confirm_attendance', 'rca', 'rca.entity_id = u.uid');
-//  $result = $query->execute();
-
   $query = db_select('users', 'u')
     ->fields('u', array('mail', 'uid'))
-    ->condition('u.uid', array(1))
-    ->orderBy('u.created',' DESC')
-//    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NULL')
+    ->condition('u.uid', 1, '!=')
+    ->condition('u.uid', 43, '!=')
+    ->orderBy('u.created','DESC')
+    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NULL')
     ->range(0,100);
   $query->leftJoin('field_data_field_rebecca_confirm_attendance', 'rca', 'rca.entity_id = u.uid');
   $result = $query->execute();
+
+//  $query = db_select('users', 'u')
+//    ->fields('u', array('mail', 'uid'))
+//    ->condition('u.uid', array(1))
+//    ->orderBy('u.created',' DESC')
+////    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NULL')
+//    ->range(0,100);
+//  $query->leftJoin('field_data_field_rebecca_confirm_attendance', 'rca', 'rca.entity_id = u.uid');
+//  $result = $query->execute();
 
   foreach ($result as $row) {
     $params = array(
