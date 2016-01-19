@@ -4,6 +4,13 @@ function tfs_custom_confirm_attendance($form, &$form_state, $user){
   $first_name = $user->field_first_name[LANGUAGE_NONE][0]['safe_value'];
   $confirmed = $user->field_rebecca_confirm_attendance;
 
+  $number_of_confirmed = db_select('field_data_field_rebecca_confirm_attendance', 'rca')
+    ->fields('rca');
+  $confirm_results = $number_of_confirmed->execute()->rowCount();
+  if ($confirm_results == 250){
+    drupal_set_message('Sorry, all tickets have been giving away.');
+    return;
+  }
   if (empty($confirmed)) {
     $form['confirm_attendance_intro'] = array(
       '#type' => 'markup',
