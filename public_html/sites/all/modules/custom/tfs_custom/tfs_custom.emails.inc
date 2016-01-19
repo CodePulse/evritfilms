@@ -81,4 +81,9 @@ function tfs_custom_send_emails($form, &$form_state){
       )));
     $count++;
   }
+  watchdog('tfs_custom_mail', array('!mail emails sent',
+    array(
+      '!mail' => $count,
+    )));
+
 }
