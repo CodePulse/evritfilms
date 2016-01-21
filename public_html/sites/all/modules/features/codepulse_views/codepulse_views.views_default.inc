@@ -2076,8 +2076,7 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '200';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
@@ -2113,10 +2112,11 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['fields']['field_rebecca_confirm_attendance']['id'] = 'field_rebecca_confirm_attendance';
   $handler->display->display_options['fields']['field_rebecca_confirm_attendance']['table'] = 'field_data_field_rebecca_confirm_attendance';
   $handler->display->display_options['fields']['field_rebecca_confirm_attendance']['field'] = 'field_rebecca_confirm_attendance';
-  /* Sort criterion: User: Created date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'users';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  /* Sort criterion: User: Last access */
+  $handler->display->display_options['sorts']['access']['id'] = 'access';
+  $handler->display->display_options['sorts']['access']['table'] = 'users';
+  $handler->display->display_options['sorts']['access']['field'] = 'access';
+  $handler->display->display_options['sorts']['access']['order'] = 'DESC';
   /* Filter criterion: User: Confirm attendance (field_rebecca_confirm_attendance) */
   $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['id'] = 'field_rebecca_confirm_attendance_value';
   $handler->display->display_options['filters']['field_rebecca_confirm_attendance_value']['table'] = 'field_data_field_rebecca_confirm_attendance';
@@ -2145,6 +2145,16 @@ function codepulse_views_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'admin/reports/rebecca-confirmation';
+
+  /* Display: Data export */
+  $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_xls';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['filename'] = 'rebecca-confirm-attendance.xls';
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['path'] = 'confirm-attendance-export';
   $export['users'] = $view;
 
   return $export;
