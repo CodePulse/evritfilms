@@ -7,7 +7,7 @@ function tfs_custom_confirm_attendance($form, &$form_state, $user){
   $number_of_confirmed = db_select('field_data_field_rebecca_confirm_attendance', 'rca')
     ->fields('rca');
   $confirm_results = $number_of_confirmed->execute()->rowCount();
-  if ($confirm_results == 250){
+  if ($confirm_results == 200){
     drupal_set_message('Sorry, all tickets have been giving away.');
     return;
   }
