@@ -86,6 +86,19 @@ function tfs_custom_mail($key, &$message, $params) {
         '!CUSTOM_CONFIRM_LINK' => $params['CUSTOM_CONFIRM_LINK'],
       ));
       break;
+    case 'contact_us':
+      $message['subject'] = 'A new Contact Us Submission at Ticket4show.com';
+      $message['body'][] = t(
+      "
+      Name: !name<br>
+      Email: !email<br>
+      Message: !message<br>
+      ", array(
+        '!name' => $params['name'],
+        '!email' => $params['email'],
+        '!message' => $params['message'],
+      ));
+      break;
     case 'rebecca_confirmation_yes':
       $message['subject'] = t('E-Ticket to REBECCA London premiere attached');
       $message['body'][] .= t('Hi !fname, <br> <br>Please come with your e-ticket on the night to grant you access to watch the film.', array(
@@ -95,3 +108,29 @@ function tfs_custom_mail($key, &$message, $params) {
       break;
   }
 }
+
+/**
+ *
+ * @param $entity
+ * @param $type
+ *
+ * @see hook_entity_presave()
+ */
+function tfs_custom_entity_presave($entity, $type) {
+
+  if ($type == 'entityform' && $entity->type == 'contact_us') {
+
+    $name = $entity->field_name[LANGUAGE_NONE][0]['value'];
+    $message = $entity->field_message[LANGUAGE_NONE][0]['value'];
+    $email = $entity->field_e_mail['und'][0]['email'];
+
+    $params = array(
+      'name' => $name,
+      'message' => $message,
+      'email' => $email,
+    );
+
+    drupal_mail('tfs_custom', 'contact_us', 'info@ticket4show.com', language_default(), $params);
+  }
+}
+
