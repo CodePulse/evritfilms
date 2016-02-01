@@ -109,7 +109,7 @@ function tfs_custom_mail($key, &$message, $params) {
     case 'thank_you':
       $message['subject'] = t('REBECCA London premiere - Thank you');
       $message['body'][] .= t('Dear @name,
-
+<br><br>
 On behalf of Evrit films and Ticket4show, I would like to take this opportunity to express my sincere appreciation to you for coming out on Friday, the 22nd January 2016 to support Shirley F Manso’s film ‘REBECCA’ exclusive London red carpet at Odeon Greenwich cinema.
 <br><br>
 I hope you had a fantastic time at the event and a smooth journey back home. I look forward seeing you again at our next event which will be announced very soon.
@@ -118,8 +118,8 @@ Please see published photos of the event by www.ghanacelebrities.com
 <br><br>
 Have a wonderful day
 <br><br>
-Many thanks,
-Henry kwao
+Many thanks,<br><br>
+Henry kwao<br><br>
 <i>Chief executive officer</i>', array(
         '@name' => $params['name']
       ));
