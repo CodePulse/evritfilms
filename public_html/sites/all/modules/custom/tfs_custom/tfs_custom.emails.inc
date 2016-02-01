@@ -48,21 +48,21 @@ function tfs_custom_email_form($form, &$form_state){
  * @param $form_state
  */
 function tfs_custom_send_emails($form, &$form_state){
-  $query = db_select('field_data_field_rebecca_confirm_attendance', 'rca')
-    ->fields('rca', array('entity_id'))
-    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NOT NULL');
-  $result = $query->execute();
-
-  foreach ($result as $uid) {
-    $user_account = user_load($uid->entity_id);
-
-    $name = $user_account->field_first_name[LANGUAGE_NONE][0]['value'];
-    $mail = $user_account->mail;
-
-    $params = array(
-      'name' => $name,
-    );
-
-    drupal_mail('tfs_custom', 'thank_you', $mail, language_default(), $params);
-  }
+//  $query = db_select('field_data_field_rebecca_confirm_attendance', 'rca')
+//    ->fields('rca', array('entity_id'))
+//    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NOT NULL');
+//  $result = $query->execute();
+//
+//  foreach ($result as $uid) {
+//    $user_account = user_load($uid->entity_id);
+//
+//    $name = $user_account->field_first_name[LANGUAGE_NONE][0]['value'];
+//    $mail = $user_account->mail;
+//
+//    $params = array(
+//      'name' => $name,
+//    );
+//
+//    drupal_mail('tfs_custom', 'thank_you', $mail, language_default(), $params);
+//  }
 }
