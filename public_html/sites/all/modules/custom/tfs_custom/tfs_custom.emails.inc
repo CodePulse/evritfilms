@@ -67,23 +67,29 @@ function tfs_custom_send_emails($form, &$form_state){
 //  $query->leftJoin('field_data_field_rebecca_confirm_attendance', 'rca', 'rca.entity_id = u.uid');
 //  $result = $query->execute();
 
-  $count = 0;
-  foreach ($result as $row) {
-    $params = array(
-      'mail' => $row->mail,
-      'CUSTOM_CONFIRM_LINK' => l(t('HERE'), $base_url . "/rebecca/new/confirm-attendance/$row->uid"),
-    );
-    drupal_mail('tfs_custom', 'send_rebecca_confirmation_email', $row->mail, language_default(), $params);
-    watchdog('tfs_custom_mail', t('Confirmation email has been sent to !mail - confirm uid is !uid',
-      array(
-        '!uid' => $row->uid,
-        '!mail' => $row->mail,
-      )));
-    $count++;
-  }
-  watchdog('tfs_custom_mail', array('!mail emails sent',
-    array(
-      '!mail' => $count,
-    )));
+  $params = array(
+    'name' => 'FirstNameBen',
+  );
 
+  drupal_mail('tfs_custom', 'thank_you', 'ben@codepulse.co.uk', language_default(), $params);
+
+//  $count = 0;
+//  foreach ($result as $row) {
+//    $params = array(
+//      'mail' => $row->mail,
+//      'CUSTOM_CONFIRM_LINK' => l(t('HERE'), $base_url . "/rebecca/new/confirm-attendance/$row->uid"),
+//    );
+//    drupal_mail('tfs_custom', 'send_rebecca_confirmation_email', $row->mail, language_default(), $params);
+//    watchdog('tfs_custom_mail', t('Confirmation email has been sent to !mail - confirm uid is !uid',
+//      array(
+//        '!uid' => $row->uid,
+//        '!mail' => $row->mail,
+//      )));
+//    $count++;
+//  }
+//  watchdog('tfs_custom_mail', array('!mail emails sent',
+//    array(
+//      '!mail' => $count,
+//    )));
+//
 }
