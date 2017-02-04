@@ -152,3 +152,22 @@ function tfs_custom_entity_presave($entity, $type) {
   }
 }
 
+function tfs_custom_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+
+  if ($form_id == 'basketmouth_entityform_edit_form') {
+    
+    if ($user->uid == 0){
+      drupal_set_message(t('You must be logged in or registered first to enter the competition!'));
+      drupal_goto('user', array('query' => array('destination' => 'basket-mouth-valentines')));
+    }
+
+    $entityform = entityform_load_multiple(array(), array('uid' => $user->uid));
+    if (!empty($entityform)) {
+      $form['actions']['submit']['#value'] = t('You have already submitted!');
+      $form['actions']['submit']['#disabled'] = TRUE;
+      $form['field_what_is_basketmouth_s_real']['#disabled'] = TRUE;
+    }
+  }
+}
+
