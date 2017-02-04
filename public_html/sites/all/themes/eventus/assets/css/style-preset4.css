@@ -2098,9 +2098,11 @@ input[type="submit"].btn.btn-mini {
 .event-lower {
   margin-top:20px;
 }
+  .style-btn:hover,
   .view-homepage-events-blocks.view-id-homepage_events_blocks.view-display-id-block_1 .views-field-title a:hover {
     background:#FFC429;
   }
+  .style-btn,
   .view-homepage-events-blocks.view-id-homepage_events_blocks.view-display-id-block_1 .views-field-title a {
   color: rgb(255, 255, 255);
   background: rgb(242, 170, 15) none repeat scroll 0% 0%;

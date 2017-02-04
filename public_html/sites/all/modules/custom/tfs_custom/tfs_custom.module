@@ -156,7 +156,6 @@ function tfs_custom_form_alter(&$form, &$form_state, $form_id) {
   global $user;
 
   if ($form_id == 'basketmouth_entityform_edit_form') {
-    
     if ($user->uid == 0){
       drupal_set_message(t('You must be logged in or registered first to enter the competition!'));
       drupal_goto('user', array('query' => array('destination' => 'basket-mouth-valentines')));
