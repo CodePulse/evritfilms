@@ -51,10 +51,19 @@ function tfs_custom_email_form($form, &$form_state){
  */
 function tfs_custom_send_emails($form, &$form_state){
 
+  $batch = array(
+    'operations' => array(),
+    'finished' => 'tfs_custom_basketmouth_bulk_send_finish',
+    'title' => t('Processing emails'),
+    'init_message' => t('Starting sending emails...'),
+    'error_message' => t('Sending email has encountered an error.'),
+    'progress_message' => t('Processed @current out of @total (@remaining remaining). @estimate until finish.'),
+    'file' => drupal_get_path('module', 'tfs_custom') . '/tfs_custom.batch.inc',
+  );
+
   $query = db_select('users', 'u')
     ->fields('u', array('uid', 'mail'))
-    ->condition('u.uid', 1);
-//    ->condition('u.uid', array(0, 43, 548, 550),'NOT IN');
+    ->condition('u.uid', array(0, 43, 548, 550),'NOT IN');
   $results = $query->execute();
 
   foreach ($results as $result) {
@@ -64,8 +73,14 @@ function tfs_custom_send_emails($form, &$form_state){
     $params = array(
       'first_name' => $first_name[0]['value'],
     );
-    drupal_mail('tfs_custom', 'basket_mouth', 'b-lamp@live.co.uk', language_default(), $params);
+
+    $batch['operations'][] = array(
+      'tfs_custom_basketmouth_bulk_send',
+      array($result->uid, $result->mail, $params),
+    );
+
   }
 
+  batch_set($batch);
 
 }

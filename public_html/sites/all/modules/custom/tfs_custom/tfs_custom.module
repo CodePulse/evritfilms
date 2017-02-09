@@ -87,19 +87,24 @@ function tfs_custom_mail($key, &$message, $params) {
       ));
       break;
     case 'basket_mouth':
-      $name = $params['first_name'];
+      $name = ucfirst($params['first_name']);
       $message['subject'] = 'Your chance to WIN tickets to see Basketmouth LIVE!';
       $content = '';
       $content .= "<img src='http://ticket4show.com/sites/default/files/Basketmouth_14FEB2017_Flyer_Front-header.jpg'>";
+      $content .= "<br>";
       $content .= "Dear $name,";
+      $content .= "<br>";
       $content .= "<br>";
       $content .= "We are giving away free tickets to <strong>Basketmouth live @ The SSE Area </strong> on 14th February 2017.";
       $content .= "<br>";
+      $content .= "<br>";
       $content .= "Please click <a href='http://ticket4show.com/basket-mouth-valentines'> here</a> to enter the competition.";
       $content .= "<br>";
+      $content .= "<br>";
       $content .= "Best of luck,";
+      $content .= "<br>";
       $content .= "<em>Staff at Ticket4Show.com</em>";
-      $message['body'] = $content;
+      $message['body'] = array($content);
       break;
     case 'contact_us':
       $message['subject'] = 'A new Contact Us Submission at Ticket4show.com';
