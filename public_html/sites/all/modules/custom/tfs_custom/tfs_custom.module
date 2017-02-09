@@ -88,7 +88,7 @@ function tfs_custom_mail($key, &$message, $params) {
       break;
     case 'basket_mouth':
       $name = $params['first_name'];
-      $message['Subject'] = 'Your chance to WIN tickets to see Basketmouth LIVE!';
+      $message['subject'] = 'Your chance to WIN tickets to see Basketmouth LIVE!';
       $content = '';
       $content .= "<img src='http://ticket4show.com/sites/default/files/Basketmouth_14FEB2017_Flyer_Front-header.jpg'>";
       $content .= "Dear $name,";
@@ -99,7 +99,7 @@ function tfs_custom_mail($key, &$message, $params) {
       $content .= "<br>";
       $content .= "Best of luck,";
       $content .= "<em>Staff at Ticket4Show.com</em>";
-      $message['Body'] = $content;
+      $message['body'] = $content;
       break;
     case 'contact_us':
       $message['subject'] = 'A new Contact Us Submission at Ticket4show.com';
