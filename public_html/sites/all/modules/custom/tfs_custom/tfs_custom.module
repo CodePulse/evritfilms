@@ -107,6 +107,7 @@ function tfs_custom_mail($key, &$message, $params) {
       $message['body'] = array($content);
       break;
     case 'contact_us':
+      $message['from'] = $message['headers']['From'] = $message['params']['email'];
       $message['subject'] = 'A new Contact Us Submission at Ticket4show.com';
       $message['body'][] = t(
       "
