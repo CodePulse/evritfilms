@@ -40,6 +40,8 @@ function tfs_custom_email_form($form, &$form_state){
     '#value' => t('Send emails'),
     '#submit' => array('tfs_custom_send_emails'),
   );
+
+
   return system_settings_form($form);
 }
 
@@ -48,21 +50,22 @@ function tfs_custom_email_form($form, &$form_state){
  * @param $form_state
  */
 function tfs_custom_send_emails($form, &$form_state){
-//  $query = db_select('field_data_field_rebecca_confirm_attendance', 'rca')
-//    ->fields('rca', array('entity_id'))
-//    ->condition('rca.field_rebecca_confirm_attendance_value','','IS NOT NULL');
-//  $result = $query->execute();
-//
-//  foreach ($result as $uid) {
-//    $user_account = user_load($uid->entity_id);
-//
-//    $name = $user_account->field_first_name[LANGUAGE_NONE][0]['value'];
-//    $mail = $user_account->mail;
-//
-//    $params = array(
-//      'name' => $name,
-//    );
-//
-//    drupal_mail('tfs_custom', 'thank_you', $mail, language_default(), $params);
-//  }
+
+  $query = db_select('users', 'u')
+    ->fields('u', array('uid', 'mail'))
+    ->condition('u.uid', 1);
+//    ->condition('u.uid', array(0, 43, 548, 550),'NOT IN');
+  $results = $query->execute();
+
+  foreach ($results as $result) {
+    $user = user_load($result->uid);
+    $first_name = field_get_items('user', $user, 'field_first_name');
+
+    $params = array(
+      'first_name' => $first_name[0]['value'],
+    );
+    drupal_mail('tfs_custom', 'basket_mouth', 'b-lamp@live.co.uk', language_default(), $params);
+  }
+
+
 }
