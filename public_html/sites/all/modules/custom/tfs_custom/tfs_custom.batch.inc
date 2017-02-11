@@ -2,7 +2,7 @@
 
 function tfs_custom_basketmouth_bulk_send($uid, $email, $params, &$context) {
 
-  $send_email = drupal_mail('tfs_custom', 'basket_mouth', $email, language_default(), $params);
+  $send_email = drupal_mail('tfs_custom', 'reminder_basket_mouth', $email, language_default(), $params);
 
   if ($send_email['result']) {
     $context['results']['success'][] = $email . ' - ' . $uid;

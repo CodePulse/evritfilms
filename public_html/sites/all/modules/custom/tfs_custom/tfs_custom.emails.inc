@@ -63,7 +63,36 @@ function tfs_custom_send_emails($form, &$form_state){
 
   $query = db_select('users', 'u')
     ->fields('u', array('uid', 'mail'))
-    ->condition('u.uid', array(0, 43, 548, 550),'NOT IN');
+    ->condition('u.uid', array(
+      548,
+      550,
+      383,
+      197,
+      210,
+      398,
+      305,
+      432,
+      180,
+      144,
+      369,
+      204,
+      485,
+      468,
+      236,
+      208,
+      552,
+      451,
+      405,
+      67,
+      218,
+      186,
+      150,
+      553,
+      195,
+      391,
+      126,
+      140,
+      286,),'NOT IN');
   $results = $query->execute();
 
   foreach ($results as $result) {
