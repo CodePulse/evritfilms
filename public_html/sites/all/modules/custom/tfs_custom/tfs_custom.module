@@ -209,5 +209,6 @@ function tfs_custom_form_alter(&$form, &$form_state, $form_id) {
       $form['field_what_is_basketmouth_s_real']['#disabled'] = TRUE;
     }
   }
+  $form['actions']['#access'] = FALSE;
 }
 
