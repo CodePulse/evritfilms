@@ -208,7 +208,9 @@ function tfs_custom_form_alter(&$form, &$form_state, $form_id) {
       $form['actions']['submit']['#disabled'] = TRUE;
       $form['field_what_is_basketmouth_s_real']['#disabled'] = TRUE;
     }
+    $form['field_what_is_basketmouth_s_real']['#access'] = FALSE;
+
   }
-  $form['actions']['#access'] = TRUE;
+  $form['actions']['#access'] = FALSE;
 }
 
