@@ -976,9 +976,10 @@ function codepulse_content_types_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 1,
+        'type' => 'text_default',
+        'weight' => 0,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1339,7 +1340,7 @@ function codepulse_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
