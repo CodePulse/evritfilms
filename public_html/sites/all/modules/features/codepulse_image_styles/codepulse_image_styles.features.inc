@@ -100,5 +100,20 @@ function codepulse_image_styles_image_default_styles() {
     ),
   );
 
+  // Exported image style: teaser_image.
+  $styles['teaser_image'] = array(
+    'label' => 'Teaser image',
+    'effects' => array(
+      11 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 720,
+          'height' => 480,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }

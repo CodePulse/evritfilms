@@ -9,4 +9,5 @@ features[image][] = blog_timeline
 features[image][] = homepage_events
 features[image][] = medium_blog
 features[image][] = portfolio
+features[image][] = teaser_image
 project path = sites/all/modules/features
