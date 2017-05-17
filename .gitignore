@@ -10,6 +10,8 @@ public_html/files/
 public_html/sites/*/files
 public_html/sites/*/private
 
+public_html/sites/default/files
+
 # Ignore default text files
 #.htaccess
 #robots.txt
