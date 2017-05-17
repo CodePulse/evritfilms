@@ -1,11 +1,9 @@
 name = Codepulse - Context
 core = 7.x
 package = Codepulse Features
-dependencies[] = codepulse_content_types
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = views
-features[context][] = events
 features[context][] = hompeage
 features[ctools][] = context:context:3
 features[ctools][] = strongarm:strongarm:1

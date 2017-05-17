@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function codepulse_content_types_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -24,14 +24,15 @@ function codepulse_content_types_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'body',
-      1 => 'field_poster',
-      2 => 'field_trailer',
-      3 => 'field_release_date',
-      4 => 'field_director',
-      5 => 'field_writers',
-      6 => 'title',
-      7 => 'path',
-      8 => 'field_age_rating',
+      1 => 'field_age_rating',
+      2 => 'field_director',
+      3 => 'field_poster',
+      4 => 'field_release_date',
+      5 => 'field_trailer',
+      6 => 'field_writers',
+      7 => 'title',
+      8 => 'path',
+      9 => 'field_teaser_image',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -43,7 +44,11 @@ function codepulse_content_types_field_group_info() {
       ),
     ),
   );
-  $export['group_event|node|event|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Event');
+
+  return $field_groups;
 }

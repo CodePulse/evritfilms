@@ -213,6 +213,29 @@ h6 {
   margin: 10px 0;
   padding: 0px;
 }
+.latest-event__read-more a:hover,
+.style-btn:hover,
+.view-homepage-events-blocks.view-id-homepage_events_blocks.view-display-id-block_1 .views-field-title a:hover {
+  background:#FFC429;
+}
+.latest-event__read-more a,
+.style-btn,
+.view-homepage-events-blocks.view-id-homepage_events_blocks.view-display-id-block_1 .views-field-title a {
+  color: rgb(255, 255, 255) !important;
+  background: rgb(242, 170, 15) none repeat scroll 0% 0%;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 0px auto;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.latest-event {
+  margin-bottom:20px;
+}
+
 .unstyled {
   margin: 0;
   padding: 0;
@@ -2098,10 +2121,18 @@ input[type="submit"].btn.btn-mini {
 .event-lower {
   margin-top:20px;
 }
+.latest-event__title {
+  height:45px;
+}
+.latest-event__description {
+  height:100px;
+}
+  .latest-event__read-more a:hover,
   .style-btn:hover,
   .view-homepage-events-blocks.view-id-homepage_events_blocks.view-display-id-block_1 .views-field-title a:hover {
     background:#FFC429;
   }
+  .latest-event__read-more a,
   .style-btn,
   .view-homepage-events-blocks.view-id-homepage_events_blocks.view-display-id-block_1 .views-field-title a {
   color: rgb(255, 255, 255) !important;
@@ -2324,6 +2355,10 @@ ul.menu {
   transition: all 0.5s ease 0s;
   opacity: 0;
   outline: none;
+}
+.latest-event__image {
+  width:100%;
+  height:auto;
 }
 .sh-portfolio .portfolio-content .portfolio-image .portfolio-image-zoom a span {
   font-size: 32px;

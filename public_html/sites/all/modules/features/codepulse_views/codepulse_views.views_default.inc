@@ -198,20 +198,13 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Media */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_media']['id'] = 'field_media';
   $handler->display->display_options['fields']['field_media']['table'] = 'field_data_field_media';
   $handler->display->display_options['fields']['field_media']['field'] = 'field_media';
   $handler->display->display_options['fields']['field_media']['label'] = '';
   $handler->display->display_options['fields']['field_media']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_media']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_media']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_media']['type'] = 'media';
-  $handler->display->display_options['fields']['field_media']['settings'] = array(
-    'file_view_mode' => 'media_small',
-  );
-  $handler->display->display_options['fields']['field_media']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_media']['delta_offset'] = '0';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -247,20 +240,13 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Media */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_media']['id'] = 'field_media';
   $handler->display->display_options['fields']['field_media']['table'] = 'field_data_field_media';
   $handler->display->display_options['fields']['field_media']['field'] = 'field_media';
   $handler->display->display_options['fields']['field_media']['label'] = '';
   $handler->display->display_options['fields']['field_media']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_media']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_media']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_media']['type'] = 'media';
-  $handler->display->display_options['fields']['field_media']['settings'] = array(
-    'file_view_mode' => 'media_small',
-  );
-  $handler->display->display_options['fields']['field_media']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_media']['delta_offset'] = '0';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -328,20 +314,13 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Media */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_media']['id'] = 'field_media';
   $handler->display->display_options['fields']['field_media']['table'] = 'field_data_field_media';
   $handler->display->display_options['fields']['field_media']['field'] = 'field_media';
   $handler->display->display_options['fields']['field_media']['label'] = '';
   $handler->display->display_options['fields']['field_media']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_media']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['field_media']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_media']['type'] = 'media';
-  $handler->display->display_options['fields']['field_media']['settings'] = array(
-    'file_view_mode' => 'media_small',
-  );
-  $handler->display->display_options['fields']['field_media']['delta_limit'] = '1';
-  $handler->display->display_options['fields']['field_media']['delta_offset'] = '0';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -952,6 +931,7 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['fields']['field_release_date']['table'] = 'field_data_field_release_date';
   $handler->display->display_options['fields']['field_release_date']['field'] = 'field_release_date';
   $handler->display->display_options['fields']['field_release_date']['label'] = '';
+  $handler->display->display_options['fields']['field_release_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_release_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_release_date']['settings'] = array(
     'format_type' => 'long',
@@ -973,10 +953,7 @@ function codepulse_views_views_default_views() {
     </div>
     <div class="event-info">
        <span><strong>Release date: </strong>[field_release_date]</span><br>
-      <span><strong>Director: </strong>[field_director]</span><br>
-      <span><strong>Writers: </strong>[field_writers]</span><br>
-      <span><strong>Age: </strong>[field_age_rating]</span><br>
-       <span><strong>Synopsis: </strong>[body]</span><br>
+       <span><strong>Event information: </strong>[body]</span><br>
     </div>
   </div>
   <div class="event-lower">
@@ -1130,7 +1107,7 @@ function codepulse_views_views_default_views() {
   /* Display: Description */
   $handler = $view->new_display('block', 'Description', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Synopsis';
+  $handler->display->display_options['title'] = 'Event information';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -1138,6 +1115,10 @@ function codepulse_views_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '600',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
