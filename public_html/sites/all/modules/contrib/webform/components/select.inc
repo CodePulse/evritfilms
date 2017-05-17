@@ -757,17 +757,17 @@ function _webform_table_select($component, $value) {
  */
 function _webform_action_set_select($component, &$element, &$form_state, $value) {
   // Set the value as an array for multiple select or single value otherwise.
-//  if ($element['#type'] == 'checkboxes') {
-//    $checkbox_values = $element['#options'];
-//    array_walk($checkbox_values, function(&$value, $key) use($value) {
-//      $value = (int)(strval($key) === $value);
-//    });
-//  }
-//  else {
-//    $value = $component['extra']['multiple'] ? array($value) : $value;
-//  }
-//  $element['#value'] = $value;
-//  form_set_value($element, $value, $form_state);
+  if ($element['#type'] == 'checkboxes') {
+    $checkbox_values = $element['#options'];
+    array_walk($checkbox_values, function(&$value, $key) use($value) {
+      $value = (int)(strval($key) === $value);
+    });
+  }
+  else {
+    $value = $component['extra']['multiple'] ? array($value) : $value;
+  }
+  $element['#value'] = $value;
+  form_set_value($element, $value, $form_state);
 }
 
 /**
