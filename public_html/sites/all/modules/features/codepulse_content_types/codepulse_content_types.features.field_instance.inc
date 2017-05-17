@@ -1052,7 +1052,7 @@ function codepulse_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1187,7 +1187,7 @@ function codepulse_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1263,7 +1263,7 @@ function codepulse_content_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1340,7 +1340,7 @@ function codepulse_content_types_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 1,
+        'weight' => 2,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
@@ -1419,9 +1419,20 @@ function codepulse_content_types_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 5,
+        'module' => 'youtube',
+        'settings' => array(
+          'youtube_autohide' => 0,
+          'youtube_autoplay' => 0,
+          'youtube_controls' => 0,
+          'youtube_height' => '',
+          'youtube_iv_load_policy' => 0,
+          'youtube_loop' => 0,
+          'youtube_showinfo' => 0,
+          'youtube_size' => 'responsive',
+          'youtube_width' => '',
+        ),
+        'type' => 'youtube_video',
+        'weight' => 1,
       ),
       'dexp_portfolio' => array(
         'label' => 'above',
